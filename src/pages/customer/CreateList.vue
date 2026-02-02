@@ -57,11 +57,11 @@ const route=useRouter()
 
 function handleCreate()
 {
-    axios.post(`${baseUrl}/customers`, {customer})
+    axios.post(`${baseUrl}/customer`, {customer})
     .then(res=>
 {
-    console.log(res);
-    router.push("/customers")
+    console.log(res.data.customer);
+    router.push("/customer")
 })
 .catch()
 }

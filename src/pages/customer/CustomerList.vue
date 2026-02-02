@@ -23,7 +23,10 @@
             <td>{{ customer.phone }}</td>
             <td>{{ customer.address }}</td>
             <td>
-                <button>Edit</button>
+                <!-- <button @click="router.push('/customer/edit/${customer.id}')">Edit</button> -->
+                <router-link :to="`/customer/edit/${customer.id}`"> Edit</router-link>
+                <!-- "`/customers/edit/`" -->
+                <!-- <button>Edit</button> -->
                 <button>Delete</button>
             </td>
         </tr>
@@ -35,6 +38,7 @@
 <script  setup>
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
+import { router } from '../../router';
 
 const customers=ref([])
 
