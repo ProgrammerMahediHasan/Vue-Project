@@ -6,6 +6,8 @@ import EditRole from "../pages/role/EditRole.vue";
 import CustomerList from "../pages/customer/CustomerList.vue";
 import CreateList from "../pages/customer/CreateList.vue";
 import EditList from "../pages/customer/EditList.vue";
+import Products from "../pages/product/Products.vue";
+import City from "../pages/city/City.vue";
 
 
 const routes=[
@@ -19,7 +21,13 @@ const routes=[
 
     {path:"/customer", component:CustomerList},
     {path:"/customer/create", component:CreateList},
-    {path:"/customer/edit/:customerId", component:EditList}
+    {path:"/customer/edit/:customerId", component:EditList},
+
+    {path:"/products", component:Products},
+
+    {path:"/city", component:City}
+
+    
 ]
 
 
