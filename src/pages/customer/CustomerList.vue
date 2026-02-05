@@ -20,6 +20,7 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
+                <th>Photo</th>
                 <th>Address</th>
                 <th>Actions</th>
             </tr>
@@ -31,7 +32,9 @@
                 <td class="font-medium">{{ customer.name }}</td>
                 <td>{{ customer.email }}</td>
                 <td>{{ customer.phone }}</td>
+                <td><img :src="`${imgUrl}/${customer.photo}`" alt="" srcset="" width="50"> {{ customer.photo }} </td>
                 <td>{{ customer.address }}</td>
+                
                 <td class="actions">
                     <router-link :to="`/customer/edit/${customer.id}`" class="btn btn-edit">
                       Edit
@@ -51,6 +54,7 @@
 <script setup>
 import axios from 'axios';
 import { computed, onMounted, ref } from 'vue';
+const imgUrl = import.meta.env.VITE_BASE_IMG_URL;
 import { router } from '../../router';
 
 const customers = ref([])

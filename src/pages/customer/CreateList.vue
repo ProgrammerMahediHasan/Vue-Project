@@ -58,6 +58,11 @@
             >
         </div>
 
+        <div>
+          <label for="">Photo</label>
+          <input type="file" name="photo" @change="handlephoto">
+        </div>
+
         <div class="form-actions">
             <button type="button" @click="router.push('/customer')" class="btn-cancel">Cancel</button>
             <button type="submit" class="btn-submit">Create Customer</button>
@@ -81,13 +86,29 @@ const router=useRouter()
   name:"",
   email:"",
   phone:"",
-  address:""
+  address:"",
+  photo:null
 
  })
 
+
+ function handlephoto(e){
+  customer.photo=e.target.files[0]
+ }
+
 function handleCreate()
+
 {
-    axios.post(`${baseUrl}/customer`, {customer})
+let formData= new FormData ();
+    formData.append('name', customer.name);
+    formData.append('email', customer.email);
+    formData.append('phone', customer.phone);
+    formData.append('address', customer.address);
+    formData.append('photo', customer.photo)
+
+
+
+    axios.post(`${baseUrl}/customer`, formData)
     .then(res=>
 {
     console.log(res.data.customer);
